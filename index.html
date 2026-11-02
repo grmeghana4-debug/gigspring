@@ -1,120 +1,177 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GigSpring — Free opportunity finder</title><meta name="description" content="Search remote and freelance opportunities in one free dashboard.">
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GigSpring — Find work that fits you</title>
+<meta name="description" content="Discover jobs, freelance projects and remote opportunities. Match opportunities to your resume and track applications.">
 <style>
-:root{--ink:#20243a;--muted:#6d7286;--line:#e7e8f0;--bg:#f6f7fb;--purple:#6654d9;--soft:#f0edff;--green:#16845d;--orange:#9a6412}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:1200px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:850}.logo{display:grid;place-items:center;background:var(--purple);color:#fff;width:39px;height:39px;border-radius:12px}.pill{background:#e8f7f0;color:var(--green);padding:6px 10px;border-radius:30px;font-size:12px}.hero{background:linear-gradient(115deg,#282345,#6654d9);color:white;border-radius:22px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}.hero h1{font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0 0 10px}.hero p{color:#e1ddff;margin:0;max-width:660px}.heroRight{text-align:right;min-width:145px}.heroRight strong{font-size:28px;display:block}.heroRight span{font-size:12px;color:#e1ddff}.bar{background:white;border:1px solid var(--line);border-radius:17px;padding:16px;margin:18px 0}.filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:9px}.field{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink)}.btn{border:0;border-radius:11px;background:var(--purple);color:white;padding:10px 15px;font-weight:750}.btn.light{background:var(--soft);color:var(--purple)}.btn:disabled{opacity:.55;cursor:wait}.meta{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:16px 2px;color:var(--muted);font-size:13px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.job{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;display:flex;flex-direction:column;gap:10px}.job h3{font-size:17px;margin:0}.company{color:var(--muted);font-size:13px}.jobtop{display:flex;justify-content:space-between;gap:10px}.pay{font-weight:800;color:var(--green);font-size:13px;text-align:right}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11px;background:#f1f2f7;border-radius:30px;padding:4px 8px;color:#555b70}.job p{margin:0;color:var(--muted);font-size:13px}.jobfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto}.source{font-size:11px;color:var(--muted)}.apply{background:var(--purple);color:#fff;text-decoration:none;padding:8px 12px;border-radius:10px;font-size:12px;font-weight:750}.save{background:var(--soft);color:var(--purple);border:0;border-radius:10px;padding:8px 11px;font-size:12px;font-weight:700}.resumeBox{background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px;margin:18px 0}.resumeHead{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.resumeHead h2{font-size:18px;margin:0}.resumeInfo{font-size:13px;color:var(--muted);margin:6px 0 12px}.resumeActions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.resumeStatus{font-size:12px;color:var(--muted);margin-top:9px}.match{display:inline-flex;align-items:center;background:#e8f7f0;color:#16845d;border-radius:30px;padding:4px 8px;font-size:11px;font-weight:800;margin-top:6px}.matchDetails{font-size:12px;color:#62677a;background:#f8f8fc;border-radius:9px;padding:8px 10px}.matchDetails b{color:#34384d}.eligibility{display:inline-block;font-size:11px;border-radius:20px;padding:3px 8px;background:#fff5df;color:#85580c;margin-top:5px}.eligibility.good{background:#e8f7f0;color:#16845d}.eligibility.bad{background:#fdecec;color:#a33b3b}.notice{font-size:12px;color:#74511b;background:#fff8e9;border:1px solid #f0e3c4;border-radius:12px;padding:12px;margin-top:17px}.empty{background:white;border:1px solid var(--line);border-radius:15px;padding:35px;text-align:center;color:var(--muted);grid-column:1/-1}.status{font-size:12px;color:var(--muted)}.tabs{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}.tab{background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:10px;color:var(--muted)}.tab.active{background:var(--soft);color:var(--purple);border-color:#d8d0ff;font-weight:700}.hidden{display:none!important}.savedrow{background:#fff;border:1px solid var(--line);padding:13px;border-radius:12px;display:flex;justify-content:space-between;gap:12px;margin:8px 0}.foot{text-align:center;color:var(--muted);font-size:12px;padding:24px}.spinner{display:inline-block;width:13px;height:13px;border:2px solid #ddd;border-top-color:var(--purple);border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media(max-width:760px){.wrap{padding:13px}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.cards{grid-template-columns:1fr}.heroRight{display:none}.meta{align-items:flex-start;flex-direction:column}}
+:root{--bg:#f5f6fb;--card:#fff;--ink:#20243a;--muted:#697087;--line:#e6e8f0;--brand:#6656d9;--brand2:#8a79f2;--good:#16845b;--warn:#a86713;--bad:#b43b4c;--shadow:0 8px 28px #25254b0d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial}
+header{background:linear-gradient(120deg,#332b76,#6656d9 58%,#9988ff);color:#fff;padding:26px max(20px,calc((100% - 1200px)/2)) 24px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.logo{font-size:25px;font-weight:850;letter-spacing:-.8px}.logo span{color:#f5d8ff}.tag{opacity:.9;margin-top:4px}.hero{margin:25px 0 6px;max-width:720px}.hero h1{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:0 0 10px}.hero p{margin:0;color:#e8e5ff}
+main{max-width:1200px;margin:22px auto;padding:0 18px 60px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.stat,.panel,.job{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.stat{padding:14px 16px}.stat b{font-size:23px;display:block}.stat small{color:var(--muted)}
+.layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:18px;align-items:start}.panel{padding:17px;margin-bottom:15px}.panel h2,.panel h3{margin:0 0 12px;font-size:17px}.field{margin:0 0 12px}.field label{display:block;font-size:12px;font-weight:750;color:#525a70;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;padding:10px 11px;border:1px solid #dfe2ec;border-radius:10px;background:#fff;color:var(--ink);font:inherit;outline-color:var(--brand)}.field textarea{min-height:100px;resize:vertical}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--brand);color:white;font-weight:750;cursor:pointer;font:inherit}.btn:hover{filter:brightness(.96)}.btn.secondary{background:#efedff;color:#4c40b5}.btn.ghost{background:#f3f4f8;color:#41475b}.btn:disabled{opacity:.55;cursor:wait}.tiny{font-size:12px;color:var(--muted)}.notice{padding:11px 12px;border-radius:10px;background:#f2f0ff;color:#5046a0;font-size:13px}.status{font-size:13px;color:var(--muted);margin:10px 0}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.tab{border:1px solid var(--line);background:#fff;color:#555d73;border-radius:999px;padding:8px 13px;cursor:pointer;font-weight:700}.tab.active{background:#eae7ff;color:#4c40b5;border-color:#d5d0ff}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}.toolbar h2{font-size:20px;margin:0}.job{padding:17px;margin-bottom:12px}.jobtop{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.job h3{margin:0;font-size:17px;line-height:1.3}.company{font-weight:650;color:#4d5369;margin-top:3px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.pill{background:#f0f1f6;border-radius:999px;padding:4px 9px;font-size:11px;color:#545b70;font-weight:700}.pill.good{background:#e7f6ef;color:#13734e}.pill.warn{background:#fff3df;color:#946016}.pill.bad{background:#ffebee;color:#a33445}.score{white-space:nowrap;background:#eeeaff;color:#4d40b5;border-radius:11px;padding:7px 10px;font-weight:850}.jobdesc{color:#5e6579;font-size:13px;margin:8px 0 12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.jobactions{display:flex;gap:8px;flex-wrap:wrap}.jobactions a{display:inline-block;text-decoration:none}.empty{padding:35px 15px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #d7d9e5;border-radius:15px}.hidden{display:none!important}.sourcechecks{display:grid;grid-template-columns:1fr 1fr;gap:7px}.sourcechecks label{font-size:13px;color:#4d5369}.sourcechecks input{accent-color:var(--brand)}.trackrow{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.footer{text-align:center;color:#83899a;font-size:12px;padding:22px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){main{padding:0 12px 40px}.stats{gap:8px}.stat{padding:11px}.jobtop{display:block}.score{display:inline-block;margin-top:8px}.trackrow{grid-template-columns:1fr 1fr}.hero{margin-top:20px}}
 </style></head>
-<body><main class="wrap">
-<header class="top"><div class="brand"><div class="logo">G</div>GigSpring</div><span class="pill">Free · India + worldwide</span></header>
-<section class="hero"><div><h1>One search. More ways to work.</h1><p>Explore remote roles, freelance projects and flexible opportunities. Compare listings, save the ones you like and apply on the original source website.</p></div><div class="heroRight"><strong id="total">—</strong><span>opportunities loaded</span></div></section>
-<div class="tabs"><button class="tab active" data-view="search" onclick="view('search')">Discover</button><button class="tab" data-view="saved" onclick="view('saved')">Saved <span id="savedNum">0</span></button></div>
-<section id="searchView">
-<div class="resumeBox">
- <div class="resumeHead"><h2>🎯 Match opportunities to your resume</h2><span class="pill">Private · processed in your browser</span></div>
- <p class="resumeInfo">Upload a PDF or TXT resume to rank loaded opportunities by relevant skills and keywords. Your file is not uploaded or stored by GigSpring.</p>
- <div class="resumeActions"><input id="resumeFile" class="field" style="max-width:360px" type="file" accept=".pdf,.txt,application/pdf,text/plain"><button class="btn" id="matchBtn" onclick="matchResume()">Match my resume</button><button class="btn light" onclick="clearResume()">Clear resume</button></div>
- <div id="resumeStatus" class="resumeStatus">No resume selected. You can still search opportunities normally.</div>
-</div>
-<div class="bar"><div class="filters">
-<input id="query" class="field" placeholder="Search title, company or skill…">
-<select id="type" class="field"><option value="">All work types</option><option value="freelance">Freelance</option><option value="contract">Contract</option><option value="part_time">Part-time</option><option value="full_time">Full-time</option><option value="internship">Internship</option></select>
-<select id="where" class="field"><option value="">All locations</option><option value="India">India + potentially eligible remote</option><option value="Worldwide">Worldwide</option><option value="United States">United States</option><option value="Europe">Europe</option></select>
-<select id="source" class="field"><option value="">All sources</option><option value="Remote OK">Remote OK</option><option value="Jobicy">Jobicy</option></select>
-<button class="btn" onclick="searchJobs()">Search</button></div>
-<div class="meta"><span id="loadStatus">Ready to load opportunities.</span><button class="btn light" onclick="loadJobs()">↻ Refresh sources</button></div></div>
-<div id="jobs" class="cards"><div class="empty">Press <b>Refresh sources</b> to fetch current listings from connected public feeds.</div></div>
-<div class="notice"><b>Source transparency:</b> GigSpring links directly to original listings and credits each provider. Listings are supplied by third-party feeds; availability, location eligibility and payment terms can change. Always verify on the source before applying. GigSpring does not guarantee jobs or earnings.</div>
+<body>
+<header><div class="top"><div><div class="logo">✦ Gig<span>Spring</span></div><div class="tag">One place to discover your next opportunity.</div></div><div class="tiny" style="color:#eeeaff">Free job discovery • Resume matching • Application tracker</div></div><div class="hero"><h1>Find work that fits your life.</h1><p>Explore remote roles, freelance opportunities and flexible work. Compare matches, save listings and keep your applications organised.</p></div></header>
+<main>
+<div class="stats"><div class="stat"><b id="totalStat">0</b><small>Opportunities loaded</small></div><div class="stat"><b id="matchStat">—</b><small>Resume match</small></div><div class="stat"><b id="savedStat">0</b><small>Saved opportunities</small></div><div class="stat"><b id="trackedStat">0</b><small>Applications tracked</small></div></div>
+<div class="layout">
+<aside>
+<section class="panel"><h2>Find opportunities</h2>
+<div class="field"><label for="keyword">Keyword or job title</label><input id="keyword" placeholder="e.g. Java, designer, virtual assistant"></div>
+<div class="field"><label for="workType">Work type</label><select id="workType"><option value="all">All work types</option><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Freelance</option><option>Internship</option></select></div>
+<div class="field"><label for="location">Location eligibility</label><select id="location"><option value="all">Anywhere / all locations</option><option value="india">India or India-friendly remote</option><option value="worldwide">Worldwide only</option><option value="remote">Remote (eligibility may need checking)</option></select></div>
+<div class="field"><label for="experience">Experience level</label><select id="experience"><option value="all">Any experience</option><option value="entry">Fresher / entry level</option><option value="junior">1–3 years</option><option value="mid">3–5 years</option><option value="senior">5+ years</option></select></div>
+<div class="field"><label for="sort">Sort results</label><select id="sort"><option value="match">Best resume match</option><option value="new">Newest first</option><option value="title">Job title A–Z</option></select></div>
+<div class="row"><button class="btn" id="searchBtn">Search</button><button class="btn secondary" id="resetBtn">Reset</button></div>
 </section>
-<section id="savedView" class="hidden"><div class="bar"><h2 style="margin:0 0 5px">Saved opportunities</h2><p class="status">Saved in this browser only. Use the original Apply link to continue.</p><div id="savedJobs"></div></div></section>
-<div class="foot">GigSpring MVP · No account or API key required for connected public feeds · Your saved list stays in this browser</div>
+<section class="panel"><h3>Job sources</h3><div class="sourcechecks">
+<label><input type="checkbox" class="source" value="Remote OK" checked> Remote OK</label>
+<label><input type="checkbox" class="source" value="Jobicy" checked> Jobicy</label>
+<label><input type="checkbox" class="source" value="Remotive" checked> Remotive</label>
+</div><button class="btn secondary" id="refreshBtn" style="width:100%;margin-top:12px">↻ Refresh sources</button><div id="sourceStatus" class="status">Ready to load opportunities.</div><div class="tiny">Listings are retrieved from provider feeds. Some sources may be temporarily unavailable due to network or browser restrictions.</div></section>
+<section class="panel"><h3>Match my resume</h3><div class="field"><label for="resumeFile">Upload PDF, TXT or DOCX</label><input type="file" id="resumeFile" accept=".pdf,.txt,.docx"></div><div class="field"><label for="resumeText">Or paste resume text</label><textarea id="resumeText" placeholder="Paste your skills, experience and job history here..."></textarea></div><button class="btn" id="matchBtn" style="width:100%">Match my resume</button><div id="resumeStatus" class="status">Resume text is processed in this browser. It is not sent to GigSpring.</div></section>
+<section class="panel"><h3>Quick tips</h3><div class="notice">Always open the original listing and confirm country eligibility, salary, experience and application requirements before applying. Never pay a recruiter to get a job.</div></section>
+</aside>
+<section>
+<div class="tabs"><button class="tab active" data-tab="jobs">Discover jobs</button><button class="tab" data-tab="saved">Saved jobs</button><button class="tab" data-tab="tracker">Application tracker</button></div>
+<div id="jobsView"><div class="toolbar"><h2>Opportunities for you</h2><span class="tiny" id="resultCount">0 results</span></div><div id="jobsList"><div class="empty">Click <b>Refresh sources</b> to load current opportunities.</div></div></div>
+<div id="savedView" class="hidden"><div class="toolbar"><h2>Saved opportunities</h2></div><div id="savedList"></div></div>
+<div id="trackerView" class="hidden"><div class="toolbar"><h2>Application tracker</h2><span class="tiny">Your tracker is saved in this browser.</span></div><div id="trackerList"></div></div>
+</section></div><div class="footer">GigSpring is an independent discovery tool, not a recruiter or employer. Listings and availability can change. Verify details on the original website.</div>
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 const SOURCES=[
- {name:"Remote OK",url:"https://remoteok.com/api",credit:"https://remoteok.com"},
- {name:"Jobicy",url:"https://jobicy.com/api/jobs?count=100",credit:"https://jobicy.com"}
+ {name:"Remote OK",url:"https://remoteok.com/api"},
+ {name:"Jobicy",url:"https://jobicy.com/api/v2/remote-jobs?count=100"},
+ {name:"Remotive",url:"https://remotive.com/api/remote-jobs?limit=100"}
 ];
-let allJobs=[], saved=JSON.parse(localStorage.getItem("gs2_saved")||"[]"),lastSources=[],resumeKeywords=[],resumeName="";
+let jobs=[],resume="",activeTab="jobs";
 const $=id=>document.getElementById(id);
-function cleanText(s){return String(s||"").replace(/<[^>]*>/g," ").replace(/&nbsp;/g," ").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
-function norm(j,source){
- let title=j.position||j.title||j.job_title||j.jobTitle||"Untitled opportunity";
- let company=j.company||j.company_name||j.companyName||"Company not listed";
- let url=j.url||j.apply_url||j.application_url||j.link||"";
- if(!/^https?:\/\//i.test(url))return null;
- let location=j.location||j.candidate_required_location||j.country||j.jobGeo||j.job_location||"Remote / see listing";
- let description=cleanText(j.description||j.descriptionText||j.job_description||j.jobDescription||j.jobExcerpt||j.excerpt||"");
- let tags=j.tags||j.job_type||j.employment_type||j.jobType||j.category||j.jobIndustry||[];
- if(!Array.isArray(tags))tags=String(tags).split(/[,|]/);
- let type=String(j.job_type||j.employment_type||"").toLowerCase().replace(/[\s-]/g,"_");
- let date=j.date||j.publication_date||j.pubDate||j.createdAt||j.created_at||"";
- let salary=j.salary||j.compensation||j.salary_range||((j.salaryMin||j.salaryMax)?`${j.salaryCurrency||""} ${j.salaryMin||""}–${j.salaryMax||""} ${j.salaryPeriod||""}`:"");
- let id=source.name+"|"+(j.id||j.slug||url);
- return {id,title:cleanText(title),company:cleanText(company),url,location:cleanText(location),description:description.slice(0,360),fullDescription:description,tags:tags.map(cleanText).filter(Boolean).slice(0,7),type,date,salary:cleanText(salary),source:source.name,credit:source.credit};
+const safe=(v)=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const norm=s=>String(s||"").toLowerCase();
+function normalize(raw,source){
+ let title=raw.position||raw.title||raw.job_title||"Untitled opportunity";
+ let company=raw.company||raw.company_name||raw.employer_name||"Company not listed";
+ let location=raw.location||raw.candidate_required_location||raw.jobGeo||raw.job_geo||raw.region||"Remote / location not specified";
+ let desc=raw.description||raw.jobDescription||raw.job_description||raw.description_text||"";
+ let url=raw.url||raw.apply_url||raw.job_url||raw.link||"#";
+ let date=raw.date||raw.publication_date||raw.created_at||raw.jobPostedAt||"";
+ let type=raw.job_type||raw.jobType||raw.employment_type||raw.contract_type||"";
+ return {id:source+"|"+title+"|"+company+"|"+url,title,company,location,desc:String(desc).replace(/<[^>]*>/g," ").replace(/\s+/g," ").trim(),url,source,date,type,raw};
 }
-function dedupe(items){let seen=new Set();return items.filter(j=>{let key=(j.title+"|"+j.company+"|"+j.location).toLowerCase().replace(/[^a-z0-9]/g,"");if(seen.has(key))return false;seen.add(key);return true})}
-async function fetchSource(source){
- let r=await fetch(source.url,{headers:{"Accept":"application/json"}});if(!r.ok)throw Error("HTTP "+r.status);
- let data=await r.json(),arr=Array.isArray(data)?data:(data.jobs||data.data||data.jobListings||[]);
- return arr.filter(j=>j && (j.position||j.title||j.jobTitle||j.job_title)).map(j=>norm(j,source)).filter(Boolean);
+async function getFeed(src){
+ const res=await fetch(src.url,{headers:{Accept:"application/json"}});
+ if(!res.ok)throw new Error("HTTP "+res.status);
+ const data=await res.json();
+ let list=Array.isArray(data)?data:(data.jobs||data.data||data.results||[]);
+ if(src.name==="Remote OK" && list.length && list[0].legal)list=list.slice(1);
+ return list.map(x=>normalize(x,src.name)).filter(x=>x.title&&x.url!=="#");
 }
-async function searchJobs(){
- if(!allJobs.length){ await loadJobs(); return; }
- applyFilters();
+async function refresh(){
+ const selected=[...document.querySelectorAll(".source:checked")].map(x=>x.value);
+ $("refreshBtn").disabled=true;$("sourceStatus").textContent="Fetching selected job feeds…";
+ let all=[],messages=[];
+ for(const src of SOURCES.filter(s=>selected.includes(s.name))){
+  try{const got=await getFeed(src);all.push(...got);messages.push(src.name+": "+got.length+" listings");}
+  catch(e){messages.push(src.name+": unavailable ("+e.message+")");}
+ }
+ const seen=new Set();jobs=all.filter(j=>{let k=(j.title+"|"+j.company+"|"+j.location).toLowerCase();if(seen.has(k))return false;seen.add(k);return true;});
+ $("sourceStatus").textContent=messages.join(" • ")||"Select at least one source.";
+ $("totalStat").textContent=jobs.length;$("refreshBtn").disabled=false;render();
 }
-async function loadJobs(){
- $("loadStatus").innerHTML='<span class="spinner"></span> Fetching public feeds…';$("jobs").innerHTML='<div class="empty">Loading opportunities…</div>';
- let outcomes=await Promise.all(SOURCES.map(async s=>{try{let jobs=await fetchSource(s);return {name:s.name,jobs,error:null}}catch(e){return {name:s.name,jobs:[],error:e.message}}}));
- allJobs=dedupe(outcomes.flatMap(x=>x.jobs));lastSources=outcomes;
- $("total").textContent=allJobs.length;
- $("loadStatus").textContent=outcomes.map(x=>x.name+": "+(x.error?"unavailable":x.jobs.length+" listings")).join(" · ");
- applyFilters();
+const SKILLS=["java","spring boot","spring","hibernate","microservices","rest api","sql","mysql","postgresql","mongodb","javascript","typescript","react","angular","node.js","python","c++","html","css","aws","azure","docker","kubernetes","git","linux","excel","customer support","sales","marketing","content writing","graphic design","canva","data entry","virtual assistant","project management","communication","account management","seo","figma","wordpress","php","ruby","go","machine learning","data analysis"];
+function extractSkills(text){let t=norm(text);return SKILLS.filter(s=>t.includes(s));}
+function score(j){
+ if(!resume)return {score:0,matched:[],why:"Upload a resume to calculate a match."};
+ const rs=extractSkills(resume),jt=norm(j.title+" "+j.desc+" "+j.company);
+ const matched=rs.filter(s=>jt.includes(s));let score=rs.length?Math.round(matched.length/Math.max(1,Math.min(rs.length,10))*75):0;
+ const role=norm($("keyword").value);if(role&&norm(j.title).includes(role))score+=15;
+ const roleTerms=role.split(/\s+/).filter(x=>x.length>2);if(roleTerms.some(x=>norm(j.title+" "+j.desc).includes(x)))score+=5;
+ return {score:Math.min(99,score),matched,why:matched.length?"Matching skills: "+matched.slice(0,7).join(", "):"No direct resume skill overlap detected."};
 }
-function applyFilters(){
- let q=$("query").value.toLowerCase().trim(),type=$("type").value,where=$("where").value,source=$("source").value;
- let list=allJobs.filter(j=>{
- let full=(j.fullDescription||j.description||"");
- let hay=(j.title+" "+j.company+" "+full+" "+j.tags.join(" ")).toLowerCase();
- j.indiaEligibility=indiaSignal(j,full);
- let indiaAllowed=j.indiaEligibility.status!=="restricted";
- let locationAllowed=!where || (where==="India" ? indiaAllowed : where==="Worldwide" ? /worldwide|anywhere|global remote|work from anywhere/i.test(j.location+" "+full) : (j.location+" "+full).toLowerCase().includes(where.toLowerCase()));
- return (!q||hay.includes(q))&&(!type||j.type.includes(type))&&locationAllowed&&(!source||j.source===source);
- });
- if(resumeKeywords.length){list.forEach(j=>{j.matchScore=scoreJob(j);});list.sort((a,b)=>b.matchScore-a.matchScore||new Date(b.date||0)-new Date(a.date||0));}
- else list.sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
- renderJobs(list);
+function scamRisk(j){
+ const t=norm(j.title+" "+j.company+" "+j.desc);
+ const flags=[];
+ if(/pay (a |an )?(fee|deposit|registration)|registration fee|upfront fee|pay to apply|security deposit/.test(t))flags.push("upfront payment request");
+ if(/guaranteed income|earn money instantly|no experience.*high salary/.test(t))flags.push("unrealistic earning claim");
+ if(/telegram only| whatsapp only|contact.*telegram/.test(t))flags.push("off-platform contact");
+ return flags;
 }
-function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function renderJobs(list){$("jobs").innerHTML=list.length?list.map(j=>card(j)).join(""):'<div class="empty">No matching listings. Clear a filter or try a broader keyword.</div>'}
-function card(j){let isSaved=saved.some(x=>x.id===j.id),elig=j.indiaEligibility||indiaSignal(j,j.fullDescription||j.description||""),details=(resumeKeywords.length?`<div class="matchDetails"><b>Why it matches:</b> ${esc((j.matchedSkills||[]).slice(0,5).join(", ")||"Some overlapping terms")}${j.roleLabel?` · ${esc(j.roleLabel)}`:""}</div>`:"")+`<div class="eligibility ${elig.cls||""}">India eligibility: ${esc(elig.label)}</div>`;return `<article class="job"><div class="jobtop"><div><h3>${esc(j.title)}</h3><div class="company">${esc(j.company)} · ${esc(j.location)}</div>${resumeKeywords.length?`<div class="match">${j.matchScore||0}% relevance estimate</div>`:""}</div><div class="pay">${esc(j.salary||j.type.replace(/_/g," ")||"See listing")}</div></div><p>${esc(j.description||"Open the original listing for full details, eligibility and application instructions.")}</p>${details}<div class="tags">${j.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div><div class="jobfoot"><div class="source">Source: <a href="${esc(j.credit)}" target="_blank" rel="noopener">${esc(j.source)}</a>${j.date?" · "+esc(String(j.date).slice(0,10)):""}</div><div style="display:flex;gap:7px"><button class="save" onclick="toggleSave('${encodeURIComponent(j.id)}')">${isSaved?"★ Saved":"☆ Save"}</button><a class="apply" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer">Apply ↗</a></div></div></article>`}
-const STOPWORDS=new Set("about above after again against all also among and any are because been before being below between both but can could did does doing down during each few for from further had has have having here how into its itself just more most other our out over own same she should some such than that the their them then there these they this those through too under until very was were what when where which while who will with would your you yours work experience skills education summary profile responsibilities using used use team ability strong including role job jobs developer engineer years project projects company remote india candidate position opportunity responsibilities responsible".split(/\s+/));
-const SKILL_TERMS=["java","spring boot","spring","hibernate","microservices","rest api","sql","mysql","postgresql","mongodb","javascript","typescript","react","angular","html","css","node.js","python","aws","azure","docker","kubernetes","git","github","jenkins","maven","gradle","junit","mockito","kafka","redis","linux","excel","power bi","data analysis","customer support","sales","marketing","content writing","seo","design","figma","canva","communication","project management","testing","automation","api","backend","frontend","full stack","problem solving"];
-function extractKeywords(text){let lower=text.toLowerCase(),found=SKILL_TERMS.filter(k=>lower.includes(k));let words=(lower.match(/[a-z][a-z0-9+#.]{2,}/g)||[]).filter(w=>!STOPWORDS.has(w)&&!/^\d+$/.test(w));let counts={};words.forEach(w=>counts[w]=(counts[w]||0)+1);let frequent=Object.entries(counts).filter(([w,c])=>c>=2).sort((a,b)=>b[1]-a[1]).slice(0,25).map(x=>x[0]);return [...new Set([...found,...frequent])].slice(0,45)}
-const BACKEND_TERMS=["java","spring boot","spring","hibernate","microservices","rest api","sql","mysql","postgresql","mongodb","maven","gradle","junit","mockito","kafka","redis","backend","api"];
-const FRONTEND_TERMS=["javascript","typescript","react","angular","html","css","frontend","ui","ux"];
-function classifyRole(text){if(/java|spring|hibernate|backend|back.end|microservice/.test(text))return "Backend / Java";if(/frontend|front.end|react|angular|ui engineer/.test(text))return "Frontend";if(/full.?stack/.test(text))return "Full stack";if(/data analyst|data engineer|data science/.test(text))return "Data";if(/qa|quality assurance|test engineer/.test(text))return "Testing / QA";if(/support|customer service/.test(text))return "Support";return "General role"}
-function indiaSignal(j,text){
- let loc=(j.location||"").toLowerCase(),body=(text||"").toLowerCase(),all=loc+" "+body;
- // Explicit India eligibility takes precedence over broad location labels.
- if(/india[- ]based applicants|based in india|candidates in india|work from india|remote in india|applicants? (?:from|in) india|india is (?:an )?eligible location|india eligible/.test(all)||/india|bengaluru|bangalore|hyderabad|pune|mumbai|delhi|chennai|gurgaon|noida/.test(loc))return {status:"possible",label:"India mentioned — verify details",cls:"good"};
- // Exclude only clear restrictions, not a generic mention of a region or office.
- if(/(?:only|must) (?:be )?(?:located|based|resident|residing) in (?:the )?(?:u\.?s\.?|united states|usa|uk|united kingdom|canada|europe|eu|germany|france|australia)|(?:u\.?s\.?|united states|usa|uk|united kingdom|canada|eu|europe)[- ]only applicants|must have (?:the )?right to work in (?:the )?(?:u\.?s\.?|united states|uk|united kingdom)|no sponsorship.*(?:india|outside)|not available in india|india is not an eligible location/.test(all))return {status:"restricted",label:"Restricted — likely not open to India",cls:"bad"};
- if(/worldwide|anywhere|global remote|work from anywhere|remote anywhere|distributed worldwide/.test(all))return {status:"possible",label:"Worldwide wording — verify with employer",cls:"good"};
- // Country-specific location labels are not assumed to be India-eligible.
- if(/united states|\busa\b|\bu\.s\.\b|united kingdom|\buk\b|canada|germany|france|europe|australia/.test(loc))return {status:"restricted",label:"Location-specific — check employer restrictions",cls:"bad"};
- // For the India filter, remote listings with unclear country rules stay visible but are flagged.
- if(/remote|work from home|telecommute|distributed/.test(loc)||/remote|work from home|telecommute|distributed/.test(body))return {status:"unclear",label:"Remote — India eligibility unclear; verify",cls:""};
- return {status:"unclear",label:"Not specified — verify with employer",cls:""};
+function eligibility(j){
+ const t=norm(j.location+" "+j.desc);
+ const india=/india|bengaluru|bangalore|mumbai|delhi|hyderabad|pune|chennai|kolkata|noida|gurugram|gurgaon/.test(t);
+ const worldwide=/worldwide|work from anywhere|anywhere in the world|global remote|remote anywhere|international applicants/.test(t);
+ const remote=/remote|distributed|work from home|work remotely/.test(t);
+ const restriction=/only (in|from) (the )?(us|usa|united states|uk|united kingdom|canada|europe)|must be located in|residents of (the )?(us|uk|canada)/.test(t);
+ if(restriction)return {label:"Location restricted — verify",kind:"bad",india:false,worldwide:false,remote};
+ if(india)return {label:"India mentioned — verify details",kind:"good",india:true,worldwide:false,remote};
+ if(worldwide)return {label:"Worldwide — verify employer terms",kind:"good",india:true,worldwide:true,remote:true};
+ if(remote)return {label:"Remote — verify India eligibility",kind:"warn",india:true,worldwide:false,remote:true};
+ return {label:"Location eligibility unclear",kind:"warn",india:false,worldwide:false,remote:false};
 }
-function scoreJob(j){let text=(j.title+" "+(j.fullDescription||j.description)+" "+j.tags.join(" ")).toLowerCase();let matched=resumeKeywords.filter(k=>k.length>2&&text.includes(k));let skillPool=resumeKeywords.filter(k=>SKILL_TERMS.includes(k));let skillMatches=skillPool.filter(k=>text.includes(k));let skillScore=skillPool.length?skillMatches.length/skillPool.length:matched.length/Math.max(1,resumeKeywords.length);let role=classifyRole(text),resumeText=resumeKeywords.join(" "),resumeBackend=BACKEND_TERMS.some(k=>resumeText.includes(k)),resumeFrontend=FRONTEND_TERMS.some(k=>resumeText.includes(k));let roleFit=1;if(resumeBackend&&["Support","Data","Testing / QA"].includes(role))roleFit=.12;else if(resumeBackend&&role==="Backend / Java")roleFit=1;else if(resumeBackend&&role==="General role")roleFit=.42;else if(resumeFrontend&&role==="Support")roleFit=.15;else if(resumeFrontend&&role==="Frontend")roleFit=1;let title=(j.title||"").toLowerCase();let titleBonus=resumeBackend&&/java|backend|back-end|spring/.test(title)?1:resumeBackend&&/software engineer|application developer/.test(title)?.7:1;let score=Math.round((skillScore*.68+roleFit*.22+titleBonus*.10)*100);let eligibility=indiaSignal(j,text);j.matchScore=Math.max(0,Math.min(99,score));j.matchedSkills=skillMatches.length?skillMatches:matched;j.roleLabel=role;j.eligibilityLabel=eligibility.label;j.eligibilityClass=eligibility.cls;j.indiaEligibility=eligibility;return j.matchScore}
-async function readResume(file){if(file.type==="text/plain"||file.name.toLowerCase().endsWith(".txt"))return await file.text();if(file.type==="application/pdf"||file.name.toLowerCase().endsWith(".pdf")){if(!window.pdfjsLib)throw Error("PDF reader could not load. Check your internet connection, then try again.");pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";let data=new Uint8Array(await file.arrayBuffer()),pdf=await pdfjsLib.getDocument({data}).promise,text="";for(let n=1;n<=pdf.numPages;n++){let page=await pdf.getPage(n),content=await page.getTextContent();text+=content.items.map(x=>x.str).join(" ")+" ";}return text;}throw Error("Please choose a PDF or TXT file.")}
-async function matchResume(){let file=$("resumeFile").files[0];if(!file){$("resumeStatus").textContent="Choose your resume PDF or TXT file first.";return;}$("matchBtn").disabled=true;$("resumeStatus").textContent="Reading your resume locally…";try{let text=await readResume(file);resumeKeywords=extractKeywords(text);resumeName=file.name;if(!resumeKeywords.length)throw Error("I couldn't find enough readable skills or keywords. Try a text-based PDF or TXT file.");$("resumeStatus").textContent=`Matched using ${resumeKeywords.length} keywords from ${resumeName}. Results are ranked using skill overlap, job-title/role relevance and a cautious location signal. Scores are estimates, not guarantees. Your resume stays on this device.`;if(!allJobs.length)await loadJobs();else applyFilters();}catch(e){resumeKeywords=[];$("resumeStatus").textContent=e.message;}finally{$("matchBtn").disabled=false;}}
-function clearResume(){resumeKeywords=[];resumeName="";$("resumeFile").value="";$("resumeStatus").textContent="Resume matching cleared. Listings are sorted by date again.";if(allJobs.length)applyFilters();}
-function toggleSave(encoded){let id=decodeURIComponent(encoded),j=allJobs.find(x=>x.id===id);if(!j)return;if(saved.some(x=>x.id===id))saved=saved.filter(x=>x.id!==id);else saved.push(j);localStorage.setItem("gs2_saved",JSON.stringify(saved));$("savedNum").textContent=saved.length;applyFilters();renderSaved()}
-function renderSaved(){$("savedNum").textContent=saved.length;$("savedJobs").innerHTML=saved.length?saved.map(j=>`<div class="savedrow"><div><b>${esc(j.title)}</b><div class="status">${esc(j.company)} · ${esc(j.source)}</div></div><div style="display:flex;gap:7px"><a class="apply" href="${esc(j.url)}" target="_blank" rel="noopener">Apply ↗</a><button class="save" onclick="removeSaved('${encodeURIComponent(j.id)}')">Remove</button></div></div>`).join(""):'<div class="empty">No saved opportunities yet.</div>'}
-function removeSaved(id){saved=saved.filter(x=>x.id!==decodeURIComponent(id));localStorage.setItem("gs2_saved",JSON.stringify(saved));renderSaved();applyFilters()}
-function view(v){$("searchView").classList.toggle("hidden",v!=="search");$("savedView").classList.toggle("hidden",v!=="saved");document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.view===v));if(v==="saved")renderSaved()}
-$("savedNum").textContent=saved.length;
-["query","type","where","source"].forEach(id=>{const el=$(id);el.addEventListener(el.tagName==="INPUT"?"input":"change",()=>{if(allJobs.length)applyFilters();});});
-</script></body></html>
+function typeMatch(j){let t=norm(j.type+" "+j.title+" "+j.desc);let f=$("workType").value;if(f==="all")return true;if(f==="Full-time")return /full.time|permanent/.test(t);if(f==="Part-time")return /part.time/.test(t);if(f==="Contract")return /contract|temporary/.test(t);if(f==="Freelance")return /freelance|freelancer|project.based/.test(t);return /intern/.test(t);}
+function experienceMatch(j){let f=$("experience").value;if(f==="all")return true;let t=norm(j.title+" "+j.desc);if(f==="entry")return /entry.level|junior|graduate|fresher|no experience|0.?2 years/.test(t);if(f==="junior")return /1.?3 years|2.?3 years|junior|associate/.test(t);if(f==="mid")return /3.?5 years|mid.level|intermediate/.test(t);return /5\+ years|5.?8 years|senior|lead|principal/.test(t);}
+function filtered(){
+ let q=norm($("keyword").value),loc=$("location").value,selected=[...document.querySelectorAll(".source:checked")].map(x=>x.value);
+ return jobs.filter(j=>{
+  let t=norm(j.title+" "+j.company+" "+j.location+" "+j.desc),el=eligibility(j);
+  if(q&&!t.includes(q))return false;
+  if(loc==="india"&&!el.india)return false;
+  if(loc==="worldwide"&&!el.worldwide)return false;
+  if(loc==="remote"&&!el.remote)return false;
+  if(!selected.includes(j.source)||!typeMatch(j)||!experienceMatch(j))return false;
+  return true;
+ }).sort((a,b)=>{let s=$("sort").value;if(s==="title")return a.title.localeCompare(b.title);if(s==="new")return String(b.date).localeCompare(String(a.date));return score(b).score-score(a).score;});
+}
+const saved=()=>JSON.parse(localStorage.getItem("gs_saved")||"[]");
+const tracked=()=>JSON.parse(localStorage.getItem("gs_tracker")||"[]");
+function isSaved(j){return saved().some(x=>x.id===j.id);}
+function render(){
+ $("savedStat").textContent=saved().length;$("trackedStat").textContent=tracked().length;$("matchStat").textContent=resume?"Active":"—";
+ if(activeTab==="saved"){renderSaved();return;}if(activeTab==="tracker"){renderTracker();return;}
+ const list=filtered();$("resultCount").textContent=list.length+" results";
+ if(!list.length){$("jobsList").innerHTML='<div class="empty">No matching opportunities. Try clearing a filter or refresh the sources.</div>';return;}
+ $("jobsList").innerHTML=list.map(j=>{let s=score(j),el=eligibility(j);return `<article class="job"><div class="jobtop"><div><h3>${safe(j.title)}</h3><div class="company">${safe(j.company)}</div></div>${resume?`<div class="score">${s.score}% match</div>`:""}</div><div class="meta"><span class="pill">${safe(j.location)}</span><span class="pill">${safe(j.source)}</span><span class="pill ${el.kind}">${safe(el.label)}</span>${j.type?`<span class="pill">${safe(j.type)}</span>`:""}${scamRisk(j).length?`<span class="pill bad">Safety warning: ${safe(scamRisk(j).join(", "))}</span>`:""}</div><p class="jobdesc">${safe(j.desc||"Open the original listing to view the full job description.")}</p>${resume?`<div class="tiny">${safe(s.why)}</div>`:""}<div class="jobactions"><a class="btn" href="${safe(j.url)}" target="_blank" rel="noopener noreferrer">View original listing ↗</a><button class="btn secondary" data-save="${safe(j.id)}">${isSaved(j)?"Saved ✓":"Save job"}</button><button class="btn ghost" data-track="${safe(j.id)}">Track application</button></div></article>`}).join("");
+}
+function renderSaved(){let list=saved();$("savedList").innerHTML=list.length?list.map(j=>`<article class="job"><h3>${safe(j.title)}</h3><div class="company">${safe(j.company)}</div><div class="meta"><span class="pill">${safe(j.location)}</span><span class="pill">${safe(j.source)}</span></div><div class="jobactions"><a class="btn" href="${safe(j.url)}" target="_blank" rel="noopener noreferrer">Open listing ↗</a><button class="btn ghost" data-unsave="${safe(j.id)}">Remove</button></div></article>`).join(""):'<div class="empty">No saved jobs yet.</div>';}
+function renderTracker(){let list=tracked();$("trackerList").innerHTML=list.length?list.map(j=>`<div class="trackrow"><b>${safe(j.title)}</b><span>${safe(j.company)}</span><select data-status="${safe(j.id)}"><option ${j.status==="Saved"?"selected":""}>Saved</option><option ${j.status==="Applied"?"selected":""}>Applied</option><option ${j.status==="Interview"?"selected":""}>Interview</option><option ${j.status==="Rejected"?"selected":""}>Rejected</option><option ${j.status==="Offer"?"selected":""}>Offer</option></select><button class="btn ghost" data-remove-track="${safe(j.id)}">Remove</button></div>`).join(""):'<div class="empty">No applications tracked yet.</div>';}
+document.addEventListener("click",e=>{
+ const sv=e.target.closest("[data-save]");if(sv){let j=jobs.find(x=>x.id===sv.dataset.save);let a=saved();if(j&&!a.some(x=>x.id===j.id))a.push(j);localStorage.setItem("gs_saved",JSON.stringify(a));render();}
+ const us=e.target.closest("[data-unsave]");if(us){localStorage.setItem("gs_saved",JSON.stringify(saved().filter(x=>x.id!==us.dataset.unsave)));render();}
+ const tr=e.target.closest("[data-track]");if(tr){let j=jobs.find(x=>x.id===tr.dataset.track),a=tracked();if(j&&!a.some(x=>x.id===j.id))a.push({...j,status:"Applied"});localStorage.setItem("gs_tracker",JSON.stringify(a));render();}
+ const rm=e.target.closest("[data-remove-track]");if(rm){localStorage.setItem("gs_tracker",JSON.stringify(tracked().filter(x=>x.id!==rm.dataset.removeTrack)));render();}
+});
+document.addEventListener("change",e=>{if(e.target.matches("[data-status]")){let a=tracked();let j=a.find(x=>x.id===e.target.dataset.status);if(j)j.status=e.target.value;localStorage.setItem("gs_tracker",JSON.stringify(a));render();}});
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{activeTab=b.dataset.tab;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));$("jobsView").classList.toggle("hidden",activeTab!=="jobs");$("savedView").classList.toggle("hidden",activeTab!=="saved");$("trackerView").classList.toggle("hidden",activeTab!=="tracker");render();}));
+$("refreshBtn").onclick=refresh;$("searchBtn").onclick=render;
+$("resetBtn").onclick=()=>{$("keyword").value="";$("workType").value="all";$("location").value="all";$("experience").value="all";$("sort").value="match";render();};
+["keyword","workType","location","experience","sort"].forEach(id=>$(id).addEventListener("input",render));
+document.querySelectorAll(".source").forEach(x=>x.addEventListener("change",render));
+async function readResume(file){
+ let ext=file.name.toLowerCase().split(".").pop();
+ if(ext==="txt")return await file.text();
+ if(ext==="pdf"){
+  if(!window.pdfjsLib)throw new Error("PDF reader library did not load. Paste resume text instead.");
+  pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  let data=new Uint8Array(await file.arrayBuffer()),pdf=await pdfjsLib.getDocument({data}).promise,out=[];
+  for(let i=1;i<=pdf.numPages;i++){let page=await pdf.getPage(i),content=await page.getTextContent();out.push(content.items.map(x=>x.str).join(" "));}
+  return out.join("\n");
+ }
+ if(ext==="docx"){
+  if(!window.mammoth)throw new Error("DOCX reader library did not load. Save as TXT or paste resume text.");
+  let buf=await file.arrayBuffer(),result=await mammoth.extractRawText({arrayBuffer:buf});return result.value;
+ }
+ throw new Error("Please use PDF, TXT or DOCX.");
+}
+$("resumeFile").addEventListener("change",async e=>{let f=e.target.files[0];if(!f)return;try{resume=await readResume(f);$("resumeText").value=resume;$("resumeStatus").textContent="Resume text extracted. Click Match my resume."; }catch(err){$("resumeStatus").textContent=err.message;}});
+$("resumeText").addEventListener("input",()=>{resume=$("resumeText").value;});
+$("matchBtn").onclick=()=>{resume=$("resumeText").value.trim();if(resume.length<30){$("resumeStatus").textContent="Please upload a readable resume or paste at least a few lines of resume text.";return;}let skills=extractSkills(resume);$("resumeStatus").textContent="Resume ready. Detected skills: "+(skills.join(", ")||"No predefined skills detected; keyword matching will still work.")+". Matching uses local keyword overlap, not an AI assessment.";render();};
+if(!window.pdfjsLib){} 
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script defer src="https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js"></script>
+</body></html>
