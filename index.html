@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GigSpring — Free opportunity finder</title><meta name="description" content="Search remote and freelance opportunities in one free dashboard.">
+<style>
+:root{--ink:#20243a;--muted:#6d7286;--line:#e7e8f0;--bg:#f6f7fb;--purple:#6654d9;--soft:#f0edff;--green:#16845d;--orange:#9a6412}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:1200px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:850}.logo{display:grid;place-items:center;background:var(--purple);color:#fff;width:39px;height:39px;border-radius:12px}.pill{background:#e8f7f0;color:var(--green);padding:6px 10px;border-radius:30px;font-size:12px}.hero{background:linear-gradient(115deg,#282345,#6654d9);color:white;border-radius:22px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}.hero h1{font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0 0 10px}.hero p{color:#e1ddff;margin:0;max-width:660px}.heroRight{text-align:right;min-width:145px}.heroRight strong{font-size:28px;display:block}.heroRight span{font-size:12px;color:#e1ddff}.bar{background:white;border:1px solid var(--line);border-radius:17px;padding:16px;margin:18px 0}.filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:9px}.field{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink)}.btn{border:0;border-radius:11px;background:var(--purple);color:white;padding:10px 15px;font-weight:750}.btn.light{background:var(--soft);color:var(--purple)}.btn:disabled{opacity:.55;cursor:wait}.meta{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:16px 2px;color:var(--muted);font-size:13px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.job{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;display:flex;flex-direction:column;gap:10px}.job h3{font-size:17px;margin:0}.company{color:var(--muted);font-size:13px}.jobtop{display:flex;justify-content:space-between;gap:10px}.pay{font-weight:800;color:var(--green);font-size:13px;text-align:right}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11px;background:#f1f2f7;border-radius:30px;padding:4px 8px;color:#555b70}.job p{margin:0;color:var(--muted);font-size:13px}.jobfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto}.source{font-size:11px;color:var(--muted)}.apply{background:var(--purple);color:#fff;text-decoration:none;padding:8px 12px;border-radius:10px;font-size:12px;font-weight:750}.save{background:var(--soft);color:var(--purple);border:0;border-radius:10px;padding:8px 11px;font-size:12px;font-weight:700}.notice{font-size:12px;color:#74511b;background:#fff8e9;border:1px solid #f0e3c4;border-radius:12px;padding:12px;margin-top:17px}.empty{background:white;border:1px solid var(--line);border-radius:15px;padding:35px;text-align:center;color:var(--muted);grid-column:1/-1}.status{font-size:12px;color:var(--muted)}.tabs{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}.tab{background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:10px;color:var(--muted)}.tab.active{background:var(--soft);color:var(--purple);border-color:#d8d0ff;font-weight:700}.hidden{display:none!important}.savedrow{background:#fff;border:1px solid var(--line);padding:13px;border-radius:12px;display:flex;justify-content:space-between;gap:12px;margin:8px 0}.foot{text-align:center;color:var(--muted);font-size:12px;padding:24px}.spinner{display:inline-block;width:13px;height:13px;border:2px solid #ddd;border-top-color:var(--purple);border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media(max-width:760px){.wrap{padding:13px}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.cards{grid-template-columns:1fr}.heroRight{display:none}.meta{align-items:flex-start;flex-direction:column}}
+</style></head>
+<body><main class="wrap">
+<header class="top"><div class="brand"><div class="logo">G</div>GigSpring</div><span class="pill">Free · India + worldwide</span></header>
+<section class="hero"><div><h1>One search. More ways to work.</h1><p>Explore remote roles, freelance projects and flexible opportunities. Compare listings, save the ones you like and apply on the original source website.</p></div><div class="heroRight"><strong id="total">—</strong><span>opportunities loaded</span></div></section>
+<div class="tabs"><button class="tab active" data-view="search" onclick="view('search')">Discover</button><button class="tab" data-view="saved" onclick="view('saved')">Saved <span id="savedNum">0</span></button></div>
+<section id="searchView">
+<div class="bar"><div class="filters">
+<input id="query" class="field" placeholder="Search title, company or skill…">
+<select id="type" class="field"><option value="">All work types</option><option value="freelance">Freelance</option><option value="contract">Contract</option><option value="part_time">Part-time</option><option value="full_time">Full-time</option><option value="internship">Internship</option></select>
+<select id="where" class="field"><option value="">All locations</option><option value="India">India</option><option value="Worldwide">Worldwide</option><option value="United States">United States</option><option value="Europe">Europe</option></select>
+<select id="source" class="field"><option value="">All sources</option><option value="Remote OK">Remote OK</option><option value="Jobicy">Jobicy</option></select>
+<button class="btn" onclick="searchJobs()">Search</button></div>
+<div class="meta"><span id="loadStatus">Ready to load opportunities.</span><button class="btn light" onclick="loadJobs()">↻ Refresh sources</button></div></div>
+<div id="jobs" class="cards"><div class="empty">Press <b>Refresh sources</b> to fetch current listings from connected public feeds.</div></div>
+<div class="notice"><b>Source transparency:</b> GigSpring links directly to original listings and credits each provider. Listings are supplied by third-party feeds; availability, location eligibility and payment terms can change. Always verify on the source before applying. GigSpring does not guarantee jobs or earnings.</div>
+</section>
+<section id="savedView" class="hidden"><div class="bar"><h2 style="margin:0 0 5px">Saved opportunities</h2><p class="status">Saved in this browser only. Use the original Apply link to continue.</p><div id="savedJobs"></div></div></section>
+<div class="foot">GigSpring MVP · No account or API key required for connected public feeds · Your saved list stays in this browser</div>
+</main>
+<script>
+const SOURCES=[
+ {name:"Remote OK",url:"https://remoteok.com/api",credit:"https://remoteok.com"},
+ {name:"Jobicy",url:"https://jobicy.com/api/jobs?count=100",credit:"https://jobicy.com"}
+];
+let allJobs=[], saved=JSON.parse(localStorage.getItem("gs2_saved")||"[]"),lastSources=[];
+const $=id=>document.getElementById(id);
+function cleanText(s){return String(s||"").replace(/<[^>]*>/g," ").replace(/&nbsp;/g," ").replace(/&amp;/g,"&").replace(/\s+/g," ").trim()}
+function norm(j,source){
+ let title=j.position||j.title||j.job_title||j.jobTitle||"Untitled opportunity";
+ let company=j.company||j.company_name||j.companyName||"Company not listed";
+ let url=j.url||j.apply_url||j.application_url||j.link||"";
+ if(!/^https?:\/\//i.test(url))return null;
+ let location=j.location||j.candidate_required_location||j.country||j.jobGeo||j.job_location||"Remote / see listing";
+ let description=cleanText(j.description||j.descriptionText||j.job_description||j.jobDescription||j.jobExcerpt||j.excerpt||"");
+ let tags=j.tags||j.job_type||j.employment_type||j.jobType||j.category||j.jobIndustry||[];
+ if(!Array.isArray(tags))tags=String(tags).split(/[,|]/);
+ let type=String(j.job_type||j.employment_type||"").toLowerCase().replace(/[\s-]/g,"_");
+ let date=j.date||j.publication_date||j.pubDate||j.createdAt||j.created_at||"";
+ let salary=j.salary||j.compensation||j.salary_range||((j.salaryMin||j.salaryMax)?`${j.salaryCurrency||""} ${j.salaryMin||""}–${j.salaryMax||""} ${j.salaryPeriod||""}`:"");
+ let id=source.name+"|"+(j.id||j.slug||url);
+ return {id,title:cleanText(title),company:cleanText(company),url,location:cleanText(location),description:description.slice(0,360),tags:tags.map(cleanText).filter(Boolean).slice(0,7),type,date,salary:cleanText(salary),source:source.name,credit:source.credit};
+}
+function dedupe(items){let seen=new Set();return items.filter(j=>{let key=(j.title+"|"+j.company+"|"+j.location).toLowerCase().replace(/[^a-z0-9]/g,"");if(seen.has(key))return false;seen.add(key);return true})}
+async function fetchSource(source){
+ let r=await fetch(source.url,{headers:{"Accept":"application/json"}});if(!r.ok)throw Error("HTTP "+r.status);
+ let data=await r.json(),arr=Array.isArray(data)?data:(data.jobs||data.data||data.jobListings||[]);
+ return arr.filter(j=>j && (j.position||j.title||j.jobTitle||j.job_title)).map(j=>norm(j,source)).filter(Boolean);
+}
+async function searchJobs(){
+ if(!allJobs.length){ await loadJobs(); return; }
+ applyFilters();
+}
+async function loadJobs(){
+ $("loadStatus").innerHTML='<span class="spinner"></span> Fetching public feeds…';$("jobs").innerHTML='<div class="empty">Loading opportunities…</div>';
+ let outcomes=await Promise.all(SOURCES.map(async s=>{try{let jobs=await fetchSource(s);return {name:s.name,jobs,error:null}}catch(e){return {name:s.name,jobs:[],error:e.message}}}));
+ allJobs=dedupe(outcomes.flatMap(x=>x.jobs));lastSources=outcomes;
+ $("total").textContent=allJobs.length;
+ $("loadStatus").textContent=outcomes.map(x=>x.name+": "+(x.error?"unavailable":x.jobs.length+" listings")).join(" · ");
+ applyFilters();
+}
+function applyFilters(){
+ let q=$("query").value.toLowerCase().trim(),type=$("type").value,where=$("where").value,source=$("source").value;
+ let list=allJobs.filter(j=>{
+ let hay=(j.title+" "+j.company+" "+j.description+" "+j.tags.join(" ")).toLowerCase();
+ let loc=j.location.toLowerCase();
+ return (!q||hay.includes(q))&&(!type||j.type.includes(type))&&(!where||loc.includes(where.toLowerCase())||(where==="Worldwide"&&loc.includes("worldwide")))&&(!source||j.source===source);
+ }).sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+ renderJobs(list);
+}
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderJobs(list){$("jobs").innerHTML=list.length?list.map(j=>card(j)).join(""):'<div class="empty">No matching listings. Clear a filter or try a broader keyword.</div>'}
+function card(j){let isSaved=saved.some(x=>x.id===j.id);return `<article class="job"><div class="jobtop"><div><h3>${esc(j.title)}</h3><div class="company">${esc(j.company)} · ${esc(j.location)}</div></div><div class="pay">${esc(j.salary||j.type.replace(/_/g," ")||"See listing")}</div></div><p>${esc(j.description||"Open the original listing for full details, eligibility and application instructions.")}</p><div class="tags">${j.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div><div class="jobfoot"><div class="source">Source: <a href="${esc(j.credit)}" target="_blank" rel="noopener">${esc(j.source)}</a>${j.date?" · "+esc(String(j.date).slice(0,10)):""}</div><div style="display:flex;gap:7px"><button class="save" onclick="toggleSave('${encodeURIComponent(j.id)}')">${isSaved?"★ Saved":"☆ Save"}</button><a class="apply" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer">Apply ↗</a></div></div></article>`}
+function toggleSave(encoded){let id=decodeURIComponent(encoded),j=allJobs.find(x=>x.id===id);if(!j)return;if(saved.some(x=>x.id===id))saved=saved.filter(x=>x.id!==id);else saved.push(j);localStorage.setItem("gs2_saved",JSON.stringify(saved));$("savedNum").textContent=saved.length;applyFilters();renderSaved()}
+function renderSaved(){$("savedNum").textContent=saved.length;$("savedJobs").innerHTML=saved.length?saved.map(j=>`<div class="savedrow"><div><b>${esc(j.title)}</b><div class="status">${esc(j.company)} · ${esc(j.source)}</div></div><div style="display:flex;gap:7px"><a class="apply" href="${esc(j.url)}" target="_blank" rel="noopener">Apply ↗</a><button class="save" onclick="removeSaved('${encodeURIComponent(j.id)}')">Remove</button></div></div>`).join(""):'<div class="empty">No saved opportunities yet.</div>'}
+function removeSaved(id){saved=saved.filter(x=>x.id!==decodeURIComponent(id));localStorage.setItem("gs2_saved",JSON.stringify(saved));renderSaved();applyFilters()}
+function view(v){$("searchView").classList.toggle("hidden",v!=="search");$("savedView").classList.toggle("hidden",v!=="saved");document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.view===v));if(v==="saved")renderSaved()}
+$("savedNum").textContent=saved.length;
+["query","type","where","source"].forEach(id=>{const el=$(id);el.addEventListener(el.tagName==="INPUT"?"input":"change",()=>{if(allJobs.length)applyFilters();});});
+</script></body></html>
